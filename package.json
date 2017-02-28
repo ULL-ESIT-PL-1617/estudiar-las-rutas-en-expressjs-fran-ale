@@ -1,0 +1,24 @@
+{
+  "name": "estudiar-las-rutas-en-expressjs-fran-ale",
+  "version": "1.0.0",
+  "description": "Estudiando las rutas en expressJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-PL-1617/estudiar-las-rutas-en-expressjs-fran-ale.git"
+  },
+  "keywords": [
+    "expressjs",
+    "gitbook",
+    "nodejs"
+  ],
+  "author": "fran-ale",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PL-1617/estudiar-las-rutas-en-expressjs-fran-ale/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-PL-1617/estudiar-las-rutas-en-expressjs-fran-ale#readme"
+}
