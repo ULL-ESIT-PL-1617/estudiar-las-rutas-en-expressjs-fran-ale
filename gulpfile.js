@@ -1,6 +1,7 @@
 var gulp = require('gulp')
 var sshexec = require('ssh-exec');
 var exec = require('child_process').exec;
+var ghpages = require('gulp-gh-pages');
 var path = require('path').resolve() + '\\node_modules\\.bin\\';
 
 /*
@@ -18,14 +19,7 @@ gulp.task('create-book', function(){
 * Publica en la rama ghpages el contenio del directorio ./html
 */
 gulp.task('deploy-gh-pages', function () {
-  exec('git checkout -b gh-pages && git checkout master', function(){
-    exec('git filter-branch --subdirectory-filter ./htmls gh-pages', function(){
-      exec('git add --all && git commit -m "updated gh-page" && git push -f origin gh-pages', function(err, out, errout){
-        if(err) console.error('Error: ' + err)
-        else    console.log('commited changes');
-      });
-    });
-  });
+  return gulp.src('./htmls/**/*').pipe(ghpages({"message" : 'ghpages deployed'}));
 });
 
 /*
