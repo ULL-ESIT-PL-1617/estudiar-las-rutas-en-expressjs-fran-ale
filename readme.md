@@ -5,17 +5,17 @@ Descripción de la [tarea](https://casianorodriguezleon.gitbooks.io/ull-esit-161
 
 **Objetivos:**
 
-- [ ] Tener un directorio **docs/** con los *.md* del libro y un directorio **src/** con los códigos fuentes de los ejemplos.
+- [x] Tener un directorio **docs/** con los *.md* del libro y un directorio **src/** con los códigos fuentes de los ejemplos.
 
 - [ ] Despliegue el libro en las plataformas que hemos visto en las prácticas anteriores.
   - [ ] [Gitbook]()
-  - [ ] [Gh-Page]()
+  - [x] [Gh-Page](https://ull-esit-pl-1617.github.io/estudiar-las-rutas-en-expressjs-fran-ale/)
   - [ ] [IAAS]()
   - [ ] [Heroku]()
 
 - [ ] Puede incorporar los apuntes elaborados en las prácticas anteriores a este.
 
-- [ ] En el directorio **src/** deberá de disponer de un **gulpfile.js** con tareas para la ejecución de los códigos fuentes de ejemplo.
+- [x] En el directorio **src/** deberá de disponer de un **gulpfile.js** con tareas para la ejecución de los códigos fuentes de ejemplo.
 
 ### Colaboradores
 - [Francisco Palacios](http://franjpr.github.io)

@@ -6,7 +6,7 @@ var exec = require('child_process').exec;
 var path = require('path').resolve() + '\\node_modules\\.bin\\';
 
 gulp.task('create-book', function(){
-  var cmd = 'gitbook build ./docs ./html';
+  var cmd = 'gitbook build ./docs ./\.publish';
 
   exec(path + cmd, function(err, out, errout){
     if(err) console.error('Error:' + err);
@@ -15,5 +15,9 @@ gulp.task('create-book', function(){
 });
 
 gulp.task('deploy-ghpages', function () {
-  return gulp.src('./html/**/*').pipe(ghpages({"message" : 'GH-Pages deployed'}));
+  return gulp.src('./\.publish/**/*').pipe(ghpages({"message" : 'GH-Pages deployed'}));
+});
+
+gulp.task('deploy-gitbook', function() {
+  return buildBranch({ branch: 'gitbook', folder: 'docs', commit : 'Desplegando libro' });
 });
