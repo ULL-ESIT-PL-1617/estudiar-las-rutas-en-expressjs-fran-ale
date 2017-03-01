@@ -7,8 +7,8 @@ Descripción de la [tarea](https://casianorodriguezleon.gitbooks.io/ull-esit-161
 
 - [x] Tener un directorio **docs/** con los *.md* del libro y un directorio **src/** con los códigos fuentes de los ejemplos.
 
-- [ ] Despliegue el libro en las plataformas que hemos visto en las prácticas anteriores.
-  - [ ] [Gitbook]()
+- [x] Despliegue el libro en las plataformas que hemos visto en las prácticas anteriores.
+  - [x] [Gitbook](https://franjpr.gitbooks.io/rutas-expressjs/content/)
   - [x] [Gh-Page](https://ull-esit-pl-1617.github.io/estudiar-las-rutas-en-expressjs-fran-ale/)
   - [ ] [IAAS]()
   - [ ] [Heroku]()
