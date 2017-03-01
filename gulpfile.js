@@ -19,5 +19,5 @@ gulp.task('deploy-ghpages', function () {
 });
 
 gulp.task('deploy-gitbook', function() {
-  return buildBranch({ branch: 'gitbook', folder: 'docs', commit : 'Desplegando libro' });
+  return buildBranch({branch: 'branch-gitbook', folder: 'docs', commit : 'Desplegando libro' });
 });
