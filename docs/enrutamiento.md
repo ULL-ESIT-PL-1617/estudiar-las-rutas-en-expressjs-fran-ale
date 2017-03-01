@@ -22,7 +22,7 @@ Las rutas siguen la siguiente estructura `app.METHOD(PATH, HANDLER)`:
 - PATH es la ruta en el servidor
 - HANDLER es la funcion que se ejecuta cuando se va a esa ruta.
 
-Por ejemplo:
+Por ejemplo....:
 
 ~~~
 var express = require('express');
