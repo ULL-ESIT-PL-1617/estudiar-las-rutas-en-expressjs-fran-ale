@@ -10,8 +10,8 @@ Descripción de la [tarea](https://casianorodriguezleon.gitbooks.io/ull-esit-161
 - [x] Despliegue el libro en las plataformas que hemos visto en las prácticas anteriores.
   - [x] [Gitbook](https://franjpr.gitbooks.io/rutas-expressjs/content/)
   - [x] [Gh-Page](https://ull-esit-pl-1617.github.io/estudiar-las-rutas-en-expressjs-fran-ale/)
-  - [ ] [IAAS]()
-  - [ ] [Heroku]()
+  - [X] [IAAS](http://10.6.129.208:8080/)
+  - [x] [Heroku](https://rutas-expresjs.herokuapp.com/)
 
 - [ ] Puede incorporar los apuntes elaborados en las prácticas anteriores a este.
 

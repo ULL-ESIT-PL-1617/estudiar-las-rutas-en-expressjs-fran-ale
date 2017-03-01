@@ -33,3 +33,20 @@ gulp.task('deploy-gitbook', function() {
     });
   });
 });
+
+
+gulp.task('deploy-iaas', function(){
+  var cmd = 'cd src/estudiar-las-rutas-en-expressjs-fran-ale && git pull && npm install && node app.js'
+  sshexec(cmd, 'usuario@10.6.129.208').pipe(process.stdout);
+});
+
+
+gulp.task('update-heroku', function(){
+  exec('git add -A && git commit -m "Actualizando herokuapp" && git push origin master && git push heroku master', function(err, out, errout){
+    if(err){
+      console.log('Err:' + err);
+    } else {
+      console.log('Output: \n' + out + '\n');
+    }
+  });
+});
