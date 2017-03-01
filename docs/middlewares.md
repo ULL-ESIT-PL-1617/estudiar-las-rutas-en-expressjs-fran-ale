@@ -16,11 +16,12 @@ Estas funciones permiten ejecutar codigo, realizar cambios en la solicitud y obj
 
 Express utiliza diferentes tipos de middleware:
 
-- De nivel de aplicación
-- De nivel de direccionador
-- De nivel de manejo de errores
-- Incorporado
-- De terceros
+- De nivel de aplicación.
+- De nivel de direccionador.
+- De nivel de manejo de errores.
+- Incorporado.
+- De terceros.
+
 
 ### Midleware de nivel de Aplicación
 
@@ -56,6 +57,120 @@ app.get('/user/:id', function (req, res, next) {
 });
 ~~~
 
+
 ### Middleware de nivel de direccionador
 
-Este midddleware funciona igual que el de nivel de Aplicación.
+Este midddleware funciona igual que el de nivel de Aplicación excepto que está enlazado a una instancia:
+~~~
+var router = express.Router();
+~~~
+A continuación mostramos un ejemplo sencillo de uso del middleware de nivel de direccionador.
+~~~
+var app = express();
+var router = express.Router();
+
+//Se ejecuta para todo los request
+router.use(function (req, res, next) {
+  console.log('Probando middleware');
+  next();
+});
+
+//se ejecuta para la petición request de la ruta /img
+router.get('/img', function (req, res, next) {
+    res.send('Carpeta img');
+
+});
+
+router.get('/user/:id', function (req, res, next) {
+  //SI el id del user es 0 salta a next router
+  if (req.params.id == 0) next('route');
+  //si no pasa a next
+  else next();
+}, function (req, res, next) {
+  res.render('else');
+});
+
+router.get('/user/:id', function (req, res, next) {
+  res.render('vista');
+});
+
+//monta router en la app
+app.use('/', router);
+~~~
+
+
+### Middleware de manejo de errores
+
+Las funciones de manejos de errores se definen de la misma manera que las funciones anterios excepto que se le pasan cuatro argumentos en vez de tres, se añade el argumento err, al principio de llamada a la función.
+~~~
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Error');
+});
+~~~
+El middleware de manejo de errores se define al final, después de otras llamadas de rutas y app.use();
+
+~~~
+var bodyParser = require('body-parser');
+
+app.use(bodyParser());
+app.use(methodOverride());
+app.use(function(err, req, res, next) {
+  // logic
+});
+~~~
+A efectors practicos de organización se pueden definir la funciones de manejos de errores, por ejemplo:
+~~~
+var metodo = require('metodo1');
+
+app.use(metodo());
+app.use(errorFunction);
+~~~
+Con errorFunction con la siguiente estructura:
+~~~
+function errorFunction(err, req, res, next) {
+  console.error(err.stack);
+  next(err);
+}
+~~~
+
+
+### Middleware Incorporado
+
+La única función de middleware incorporado en Express es express.static.Esta función se basa en serve-static y es responsable del servicio de activos estáticos de una explicación Express.
+~~~
+express.static(root, [options])
+~~~
+El argumento root representa el directorio donde se realiza el servicio y options es opcional.
+
+A continuación tenemos un ejemplo de las opciones de las que disponemos:
+~~~
+var options = {
+  dotfiles: 'ignore',     //valores posibles "allow", "deny" y "ignore"
+  etag: false,            //habilita la generación de tag
+  extensions: ['htm', 'html'],    //establece las reservas de extensiones de archivos
+  index: false,                   //envia el archivo de indice de directorios
+  maxAge: '1d',        //establezca la propiedad max-age de la cabecera Cache-Control
+  redirect: false,     //redirecciona a la raiz final cuando el acceso no es un directorio
+  setHeaders: function (res, path, stat) {  
+    res.set('x-timestamp', Date.now());     //Función que establece las cabeceras HTTP
+  }
+}
+
+app.use(express.static('public', options));
+~~~
+
+
+### Middleware de terceros
+
+Sirve para añadir funcionalidades a las aplicaciones Express. Es necesario el modulo Node.js para instalar la funcionalidad.
+
+![softTerceros](imgs/terceros.PNG)
+~~~
+var express = require('express');
+var app = express();
+var cookieSesion = require('cookie-sesion');
+
+// load the cookie-parsing middleware
+app.use(cookieSesion());
+~~~
