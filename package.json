@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ULL-ESIT-PL-1617/estudiar-las-rutas-en-expressjs-fran-ale/issues"
   },
-  "homepage": "https://github.com/ULL-ESIT-PL-1617/estudiar-las-rutas-en-expressjs-fran-ale#readme"
+  "homepage": "https://github.com/ULL-ESIT-PL-1617/estudiar-las-rutas-en-expressjs-fran-ale#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
 }
