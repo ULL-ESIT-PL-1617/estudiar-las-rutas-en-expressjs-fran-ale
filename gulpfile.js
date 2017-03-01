@@ -19,7 +19,7 @@ gulp.task('create-book', function(){
 */
 gulp.task('deploy-gh-pages', function () {
   exec('git checkout -b gh-pages && git checkout master', function(){
-    exec('git filter-branch --subdirectory-filter /htmls gh-pages', function(){
+    exec('git filter-branch --subdirectory-filter ./htmls gh-pages', function(){
       exec('git add --all && git commit -m "updated gh-page" && git push -f origin gh-pages', function(err, out, errout){
         if(err) console.error('Error: ' + err)
         else    console.log('commited changes');
