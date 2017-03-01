@@ -114,9 +114,9 @@ El middleware de manejo de errores se define al final, después de otras llamada
 var bodyParser = require('body-parser');
 
 app.use(bodyParser());
-app.use(methodOverride());
+
 app.use(function(err, req, res, next) {
-  // logic
+  // 
 });
 ~~~
 A efectors practicos de organización se pueden definir la funciones de manejos de errores, por ejemplo:
@@ -171,6 +171,5 @@ var express = require('express');
 var app = express();
 var cookieSesion = require('cookie-sesion');
 
-// load the cookie-parsing middleware
 app.use(cookieSesion());
 ~~~

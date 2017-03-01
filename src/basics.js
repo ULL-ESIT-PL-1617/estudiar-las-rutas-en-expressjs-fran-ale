@@ -1,9 +1,11 @@
 var express = require('../node_modules/express');
 var path = require('../node_modules/path');
 var cookieParser = require('../node_modules/cookie-parser');
-var router = express.Router();
+
 
 var app = express();
+var router = require('./routerExample.js');
+
 
 app.listen(process.env.PORT || 3000);
 
@@ -30,3 +32,5 @@ app.get('/ab*cd', function (req, res) {
 app.get('/users/:uid', function (req, res) {
   res.send('tu uid es: ' + req.params.uid);
 });
+
+app.use('/router', router);
